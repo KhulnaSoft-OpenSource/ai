@@ -3,7 +3,7 @@ import { createHtmlElement } from "../../../utils/createHtmlElement";
 import emailSocialIcon from "../../../assets/mail-icon.svg";
 import twitterSocialIcon from "../../../assets/twitter-icon.svg";
 import linkedInSocailIcon from "../../../assets/linkedin-icon.svg";
-import { OPEN_SAUCED_INSIGHTS_DOMAIN } from "../../../constants";
+import { KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN } from "../../../constants";
 
 interface Socials {
     emailAddress?: string | null;
@@ -18,7 +18,7 @@ export const InviteToKhulnaSoftModal = (
 ) => {
     const emailBody =
     typeof emailAddress === "string" &&
-    `Hey ${username}. I'm using KhulnaSoft to keep track of my contributions and discover new projects. Try connecting your GitHub to https://khulnasoft.pizza/`;
+    `Hey ${username}. I'm using KhulnaSoft to keep track of my contributions and discover new projects. Try connecting your GitHub to https://khulnasoft.com/`;
     const emailHref =
     typeof emailAddress === "string" &&
     `mailto:${emailAddress}?subject=${encodeURIComponent(
@@ -27,7 +27,7 @@ export const InviteToKhulnaSoftModal = (
     const tweetHref =
     typeof twitterUsername === "string" &&
     `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        `Check out @saucedopen. The platform for open source contributors to find their next contribution. https://khulnasoft.pizza/blog/social-coding-is-back. @${twitterUsername}`,
+        `Check out @saucedopen. The platform for open source contributors to find their next contribution. https://khulnasoft.com/blog/social-coding-is-back. @${twitterUsername}`,
     )}&hashtags=opensource,github`;
     const linkedinHref =
     typeof linkedInUsername === "string" &&
@@ -77,7 +77,7 @@ export const InviteToKhulnaSoftModal = (
         className:
       "mt-2 min-w-[33%] relative top-60 mx-auto p-4 border w-96 rounded-md shadow-button border-solid border-orange bg-slate-800",
         innerHTML: `
-    <h3 class="text-2xl leading-6 font-bold text-white">Invite ${username} to <a href="https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/start"><span class="hover:text-orange hover:underline">KhulnaSoft!</span></a></h3>
+    <h3 class="text-2xl leading-6 font-bold text-white">Invite ${username} to <a href="https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/start"><span class="hover:text-orange hover:underline">KhulnaSoft!</span></a></h3>
     <div class="mt-2">
        <p class="text-md text-white">
           Use the links below to invite them.

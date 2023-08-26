@@ -13,7 +13,7 @@ import { getUserPRVelocity } from "../../utils/getUserPRVelocity";
 import { BiExit } from "react-icons/bi";
 import Start from "./start";
 import { optLogOut } from "../../utils/checkAuthentication";
-import { OPEN_SAUCED_INSIGHTS_DOMAIN } from "../../constants";
+import { KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN } from "../../constants";
 
 const interestIcon = {
     python: <SiPython />,
@@ -91,7 +91,7 @@ export const Profile = ({ username }: { username: string }) => {
                     <div className="flex flex-col items-center gap-1 mb-4">
                         <a
                             className="flex flex-col items-center hover:text-orange hover:scale-105"
-                            href={`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/user/${username}`}
+                            href={`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/user/${username}`}
                             rel="noopener noreferrer"
                             target="_blank"
                         >
@@ -196,10 +196,10 @@ export const Profile = ({ username }: { username: string }) => {
                                 <a
                                     key={interest}
                                     className="flex gap-1 items-center p-1.5 px-4 rounded-full bg-slate-700 hover:bg-slate-700/50"
-                                    href={`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/${interest}/dashboard/filter/recent`}
+                                    href={`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/${interest}/dashboard/filter/recent`}
                                     rel="noreferrer"
                                     target="_blank"
-                                    title={`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/${interest}/dashboard/filter/recent`}
+                                    title={`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/${interest}/dashboard/filter/recent`}
                                 >
                                     {interestIcon[interest as InterestIconKeys]}
 

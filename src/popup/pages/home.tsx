@@ -20,7 +20,7 @@ import { getEmojis, getHighlights, getRepoKhulnaSoftURL } from "../../utils/fetc
 import Help from "./help";
 import { useEffect, useState, useRef } from "react";
 import Settings from "./settings";
-import { OPEN_SAUCED_INSIGHTS_DOMAIN } from "../../constants";
+import { KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN } from "../../constants";
 import type { Highlight } from "../../ts/types";
 import { usGetGitHubPageInfo } from "../../hooks/useGetGitHubPageInfo";
 import { HighlightSlide } from "../components/HighlightSlide";
@@ -72,9 +72,9 @@ const Home = ({ forceRefresh }: { forceRefresh: boolean } = { forceRefresh: fals
     useEffect(() => {
         const fetchRepoKhulnaSoftURL = async () => {
             try {
-                const openSaucedUrl = await getRepoKhulnaSoftURL(pageUrl);
+                const khulnaSoftUrl = await getRepoKhulnaSoftURL(pageUrl);
 
-                setRepoKhulnaSoftURL(openSaucedUrl);
+                setRepoKhulnaSoftURL(khulnaSoftUrl);
             } catch (error) {
                 console.log(error);
             }
@@ -95,11 +95,11 @@ const Home = ({ forceRefresh }: { forceRefresh: boolean } = { forceRefresh: fals
                         role="presentation"
                         src={KhulnaSoftLogo}
                         onClick={() => {
-                            window.open(`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/feed`, "_blank");
+                            window.open(`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/feed`, "_blank");
                         }}
                         onKeyDown={e => {
                             if (e.key === "Enter") {
-                                window.open(`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/feed`, "_blank");
+                                window.open(`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/feed`, "_blank");
                             }
                         }}
                     />
@@ -126,7 +126,7 @@ const Home = ({ forceRefresh }: { forceRefresh: boolean } = { forceRefresh: fals
                 <main className="main-content">
                     <a
                         className="flex items-center text-white hover:text-orange no-underline gap-2 w-full font-medium text-lg leading-10"
-                        href={`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/feed`}
+                        href={`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/feed`}
                         rel="noreferrer"
                         target="_blank"
                     >

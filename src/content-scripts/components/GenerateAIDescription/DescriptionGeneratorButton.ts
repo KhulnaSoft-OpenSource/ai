@@ -1,5 +1,5 @@
 import { createHtmlElement } from "../../../utils/createHtmlElement";
-import openSaucedLogoIcon from "../../../assets/khulnasoft-icon.svg";
+import khulnaSoftLogoIcon from "../../../assets/khulnasoft-icon.svg";
 import { getPullRequestAPIURL } from "../../../utils/urlMatchers";
 import { getDescriptionContext, isOutOfContextBounds } from "../../../utils/fetchGithubAPIData";
 import { generateDescription } from "../../../utils/ai-utils/openai";
@@ -12,7 +12,7 @@ export const DescriptionGeneratorButton = () => {
     const descriptionGeneratorButton = createHtmlElement("a", {
         id: "ai-description-button",
         innerHTML: `<span id="ai-description-gen" class="toolbar-item btn-octicon">
-    <img class="octicon octicon-heading" height="16px" width="16px" id="ai-description-button-logo" src=${chrome.runtime.getURL(openSaucedLogoIcon)}>
+    <img class="octicon octicon-heading" height="16px" width="16px" id="ai-description-button-logo" src=${chrome.runtime.getURL(khulnaSoftLogoIcon)}>
     </span>
     <tool-tip for="ai-description-gen">Generate PR description</tool-tip>`,
         onclick: handleSubmit,

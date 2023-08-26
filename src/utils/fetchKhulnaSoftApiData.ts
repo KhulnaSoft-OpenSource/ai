@@ -1,12 +1,12 @@
 import { cachedFetch } from "./cache";
 import {
-    OPEN_SAUCED_USERS_ENDPOINT, OPEN_SAUCED_REPOS_ENDPOINT,
-    OPEN_SAUCED_USER_INSIGHTS_ENDPOINT,
-    OPEN_SAUCED_USER_HIGHLIGHTS_ENDPOINT,
-    OPEN_SAUCED_HIGHLIGHTS_LIST_ENDPOINT,
-    OPEN_SAUCED_HIGHLIGHT_ENDPOINT,
-    OPEN_SAUCED_EMOJIS_ENDPOINT,
-    OPEN_SAUCED_INSIGHTS_DOMAIN,
+    KHULNASOFT_OPENSOURCE_USERS_ENDPOINT, KHULNASOFT_OPENSOURCE_REPOS_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_USER_INSIGHTS_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_USER_HIGHLIGHTS_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_HIGHLIGHTS_LIST_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_HIGHLIGHT_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_EMOJIS_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN,
 } from "../constants";
 import { IInsight } from "../ts/InsightDto";
 import { GeneralAPIResponse, Highlights } from "../ts/types";
@@ -14,7 +14,7 @@ import { GeneralAPIResponse, Highlights } from "../ts/types";
 export const isKhulnaSoftUser = async (username: string) => {
     try {
         const response = await fetch(
-            `${OPEN_SAUCED_USERS_ENDPOINT}/${username}`,
+            `${KHULNASOFT_OPENSOURCE_USERS_ENDPOINT}/${username}`,
         );
 
         if (response.status === 200) {
@@ -28,7 +28,7 @@ export const isKhulnaSoftUser = async (username: string) => {
     }
 };
 
-export const getUserData = async (userName: string, forceRefresh: boolean = false) => cachedFetch(`${OPEN_SAUCED_USERS_ENDPOINT}/${userName}`, {
+export const getUserData = async (userName: string, forceRefresh: boolean = false) => cachedFetch(`${KHULNASOFT_OPENSOURCE_USERS_ENDPOINT}/${userName}`, {
     expireInSeconds: 2 * 60 * 60,
     forceRefresh,
     headers: { Accept: "application/json" },
@@ -40,7 +40,7 @@ export const getUserData = async (userName: string, forceRefresh: boolean = fals
 })
     .then(json => json);
 
-export const getUserPRData = async (userName: string, forceRefresh: boolean = false) => cachedFetch(`${OPEN_SAUCED_USERS_ENDPOINT}/${userName}/prs`, {
+export const getUserPRData = async (userName: string, forceRefresh: boolean = false) => cachedFetch(`${KHULNASOFT_OPENSOURCE_USERS_ENDPOINT}/${userName}/prs`, {
     expireInSeconds: 2 * 60 * 60,
     forceRefresh,
     headers: { Accept: "application/json" },
@@ -52,7 +52,7 @@ export const getUserPRData = async (userName: string, forceRefresh: boolean = fa
 })
     .then(json => json);
 
-export const getUserHighlightsData = async (userName: string, forceRefresh: boolean = false) => cachedFetch(`${OPEN_SAUCED_USERS_ENDPOINT}/${userName}/highlights`, {
+export const getUserHighlightsData = async (userName: string, forceRefresh: boolean = false) => cachedFetch(`${KHULNASOFT_OPENSOURCE_USERS_ENDPOINT}/${userName}/highlights`, {
     expireInSeconds: 2 * 60 * 60,
     forceRefresh,
     headers: { Accept: "application/json" },
@@ -66,7 +66,7 @@ export const getUserHighlightsData = async (userName: string, forceRefresh: bool
 
 const getUserVotes = async (userToken: string, page: number = 1, limit: number = 1000, repos: any[] = []): Promise<any[]> => {
     const response = await fetch(
-        `${OPEN_SAUCED_REPOS_ENDPOINT}/listUserVoted?page=${page}&limit=${limit}`,
+        `${KHULNASOFT_OPENSOURCE_REPOS_ENDPOINT}/listUserVoted?page=${page}&limit=${limit}`,
         {
             method: "GET",
             headers: { Authorization: `Bearer ${userToken}` },
@@ -95,13 +95,13 @@ export const checkUserVotedRepo = async (userToken: string, repoName: string) =>
 
 export const repoExistsOnKhulnaSoft = async (ownerName: string, repoName: string) => {
     const response = await fetch(
-        `${OPEN_SAUCED_REPOS_ENDPOINT}/${ownerName}/${repoName}`,
+        `${KHULNASOFT_OPENSOURCE_REPOS_ENDPOINT}/${ownerName}/${repoName}`,
     );
 
     return response.status === 200;
 };
 
-export const getRepoData = async (ownerName: string, repoName: string, forceRefresh: boolean = false) => cachedFetch(`${OPEN_SAUCED_REPOS_ENDPOINT}/${ownerName}/${repoName}`, {
+export const getRepoData = async (ownerName: string, repoName: string, forceRefresh: boolean = false) => cachedFetch(`${KHULNASOFT_OPENSOURCE_REPOS_ENDPOINT}/${ownerName}/${repoName}`, {
     expireInSeconds: 2 * 60 * 60,
     forceRefresh,
     headers: { Accept: "application/json" },
@@ -115,7 +115,7 @@ export const getRepoData = async (ownerName: string, repoName: string, forceRefr
 
 export const voteOrUnvoteRepo = async (userToken: string, ownerName: string, repoName: string, method: "PUT" | "DELETE") => {
     const response = await fetch(
-        `${OPEN_SAUCED_REPOS_ENDPOINT}/${ownerName}/${repoName}/vote`,
+        `${KHULNASOFT_OPENSOURCE_REPOS_ENDPOINT}/${ownerName}/${repoName}/vote`,
         {
             method,
             headers: { Authorization: `Bearer ${userToken}` },
@@ -127,7 +127,7 @@ export const voteOrUnvoteRepo = async (userToken: string, ownerName: string, rep
 
 export const getUserInsightsData = async (userToken: string) => {
     const response = await fetch(
-        `${OPEN_SAUCED_USER_INSIGHTS_ENDPOINT}`,
+        `${KHULNASOFT_OPENSOURCE_USER_INSIGHTS_ENDPOINT}`,
         {
             method: "GET",
             headers: { Authorization: `Bearer ${userToken}` },
@@ -144,7 +144,7 @@ export const updateInsight = async (userToken: string, repoId: string, checked: 
     }));
 
     const response = await fetch(
-        `${OPEN_SAUCED_USER_INSIGHTS_ENDPOINT}/${insight.id}`,
+        `${KHULNASOFT_OPENSOURCE_USER_INSIGHTS_ENDPOINT}/${insight.id}`,
         {
             method: "PATCH",
             headers: {
@@ -173,7 +173,7 @@ export const updateInsight = async (userToken: string, repoId: string, checked: 
 };
 export const getHighlights = async (forceRefresh?: boolean): Promise<Highlights | undefined> => {
     const response = await cachedFetch(
-        `${OPEN_SAUCED_HIGHLIGHTS_LIST_ENDPOINT}?limit=10`,
+        `${KHULNASOFT_OPENSOURCE_HIGHLIGHTS_LIST_ENDPOINT}?limit=10`,
         {
             method: "GET",
             expireInSeconds: 300,
@@ -187,7 +187,7 @@ export const getHighlights = async (forceRefresh?: boolean): Promise<Highlights 
     return response.json();
 };
 
-export const createHighlight = async (userToken: string, url: string, title: string, highlight: string, shipped_at?: string) => fetch(OPEN_SAUCED_USER_HIGHLIGHTS_ENDPOINT, {
+export const createHighlight = async (userToken: string, url: string, title: string, highlight: string, shipped_at?: string) => fetch(KHULNASOFT_OPENSOURCE_USER_HIGHLIGHTS_ENDPOINT, {
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -203,13 +203,13 @@ export const createHighlight = async (userToken: string, url: string, title: str
 });
 
 export const getHighlightReactions = async (highlightId: string):Promise<Record<string, string>[]> => {
-    const response = await fetch(`${OPEN_SAUCED_HIGHLIGHT_ENDPOINT}/${highlightId}/reactions`, { method: "GET" });
+    const response = await fetch(`${KHULNASOFT_OPENSOURCE_HIGHLIGHT_ENDPOINT}/${highlightId}/reactions`, { method: "GET" });
 
     return response.json();
 };
 
 export const getUserHighlightReactions = async (userToken: string, highlightId: string):Promise<Record<string, string>[]> => {
-    const response = await fetch(`${OPEN_SAUCED_USER_HIGHLIGHTS_ENDPOINT}/${highlightId}/reactions`, {
+    const response = await fetch(`${KHULNASOFT_OPENSOURCE_USER_HIGHLIGHTS_ENDPOINT}/${highlightId}/reactions`, {
         headers: { Authorization: `Bearer ${userToken}` },
         method: "GET",
     });
@@ -218,17 +218,17 @@ export const getUserHighlightReactions = async (userToken: string, highlightId: 
 };
 
 export const getEmojis = async ():Promise<GeneralAPIResponse> => {
-    const response = await fetch(`${OPEN_SAUCED_EMOJIS_ENDPOINT}`, { method: "GET" });
+    const response = await fetch(`${KHULNASOFT_OPENSOURCE_EMOJIS_ENDPOINT}`, { method: "GET" });
 
     return response.json();
 };
 
-export const reactOnHighlight = async (userToken: string, highlightId: string, emojiId: string) => fetch(`${OPEN_SAUCED_USER_HIGHLIGHTS_ENDPOINT}/${highlightId}/reactions/${emojiId}`, {
+export const reactOnHighlight = async (userToken: string, highlightId: string, emojiId: string) => fetch(`${KHULNASOFT_OPENSOURCE_USER_HIGHLIGHTS_ENDPOINT}/${highlightId}/reactions/${emojiId}`, {
     headers: { Authorization: `Bearer ${userToken}` },
     method: "POST",
 });
 
-export const removeReactionOnHighlight = async (userToken: string, highlightId: string, emojiId: string) => fetch(`${OPEN_SAUCED_USER_HIGHLIGHTS_ENDPOINT}/${highlightId}/reactions/${emojiId}`, {
+export const removeReactionOnHighlight = async (userToken: string, highlightId: string, emojiId: string) => fetch(`${KHULNASOFT_OPENSOURCE_USER_HIGHLIGHTS_ENDPOINT}/${highlightId}/reactions/${emojiId}`, {
     headers: { Authorization: `Bearer ${userToken}` },
     method: "DELETE",
 });
@@ -236,12 +236,12 @@ export const removeReactionOnHighlight = async (userToken: string, highlightId: 
 export const getRepoKhulnaSoftURL = async (repoUrl: string) => {
     const repoFullName = repoUrl.split("/").slice(-2)
         .join("/");
-    const response = await fetch(`${OPEN_SAUCED_REPOS_ENDPOINT}/${repoFullName}`, { method: "GET" });
+    const response = await fetch(`${KHULNASOFT_OPENSOURCE_REPOS_ENDPOINT}/${repoFullName}`, { method: "GET" });
 
     if (response.status === 200) {
         const data = await response.json();
 
-        return `https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/${data.language}/repositories/filter/${data.full_name}`;
+        return `https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/${data.language}/repositories/filter/${data.full_name}`;
     }
     return "";
 };

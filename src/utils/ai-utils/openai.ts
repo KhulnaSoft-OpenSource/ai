@@ -1,8 +1,8 @@
 import {
-    OPEN_SAUCED_AI_PR_DESCRIPTION_ENDPOINT,
-    OPEN_SAUCED_AI_CODE_REFACTOR_ENDPOINT,
-    OPEN_SAUCED_AI_CODE_TEST_ENDPOINT,
-    OPEN_SAUCED_AI_CODE_EXPLANATION_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_AI_PR_DESCRIPTION_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_AI_CODE_REFACTOR_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_AI_CODE_TEST_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_AI_CODE_EXPLANATION_ENDPOINT,
 } from "../../constants";
 import type { DescriptionConfig, DescriptionTone } from "./descriptionconfig";
 
@@ -16,7 +16,7 @@ export const generateDescription = async (
     commitMessages?: string[],
 ): Promise<string | undefined> => {
     try {
-        const response = await fetch(OPEN_SAUCED_AI_PR_DESCRIPTION_ENDPOINT, {
+        const response = await fetch(KHULNASOFT_OPENSOURCE_AI_PR_DESCRIPTION_ENDPOINT, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const generateCodeSuggestion = async (
     { config: { length, temperature, language } }: DescriptionConfig,
 ): Promise<string | undefined> => {
     try {
-        const response = await fetch(OPEN_SAUCED_AI_CODE_REFACTOR_ENDPOINT, {
+        const response = await fetch(KHULNASOFT_OPENSOURCE_AI_CODE_REFACTOR_ENDPOINT, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export const generateCodeTest = async (
     { config: { length, temperature } }: DescriptionConfig,
 ): Promise<string | undefined> => {
     try {
-        const response = await fetch(OPEN_SAUCED_AI_CODE_TEST_ENDPOINT, {
+        const response = await fetch(KHULNASOFT_OPENSOURCE_AI_CODE_TEST_ENDPOINT, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -116,7 +116,7 @@ export const generateCodeExplanation = async (
     { config: { length, temperature, language } }: DescriptionConfig,
 ): Promise<string | undefined> => {
     try {
-        const response = await fetch(OPEN_SAUCED_AI_CODE_EXPLANATION_ENDPOINT, {
+        const response = await fetch(KHULNASOFT_OPENSOURCE_AI_CODE_EXPLANATION_ENDPOINT, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

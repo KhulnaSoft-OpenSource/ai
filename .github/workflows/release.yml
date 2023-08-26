@@ -54,7 +54,7 @@ jobs:
   release:
     environment:
       name: ${{ needs.setup.outputs.DEPLOY_ENVIRONMENT }}
-      url: https://${{ needs.setup.outputs.DEPLOY_SUBDOMAIN }}insights.khulnasoft.pizza
+      url: https://${{ needs.setup.outputs.DEPLOY_SUBDOMAIN }}insights.khulnasoft.com
     name: Semantic release
     needs:
       - setup

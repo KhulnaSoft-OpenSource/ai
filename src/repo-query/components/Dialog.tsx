@@ -1,5 +1,5 @@
 import { useState } from "react";
-import openSaucedLogoIcon from "../../assets/khulnasoft-opensource-orange-bg-logo.svg";
+import khulnaSoftLogoIcon from "../../assets/khulnasoft-opensource-orange-bg-logo.svg";
 import { Home } from "../pages/home";
 import { IndexingPage } from "../pages/indexing";
 import { Chat } from "../pages/chat";
@@ -30,7 +30,7 @@ export const Dialog = ({ isOpen, toggleDialog, ownerName, repoName }: { isOpen: 
                             alt="KhulnaSoft logo"
                             className="w-12 h-12 rounded-full ml-4"
                             id="chat-dialog-header-left-logo"
-                            src={`${chrome.runtime.getURL(openSaucedLogoIcon)}`}
+                            src={`${chrome.runtime.getURL(khulnaSoftLogoIcon)}`}
                         />
 
                         <div

@@ -14,7 +14,7 @@ const Start = () => (
 
             <a
                 className="text-orange no-underline"
-                href="https://khulnasoft.pizza/"
+                href="https://khulnasoft.com/"
             >
           KhulnaSoft
             </a>

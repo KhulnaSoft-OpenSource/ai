@@ -1,16 +1,16 @@
 import { createHtmlElement } from "../../../utils/createHtmlElement";
-import openSaucedLogoIcon from "../../../assets/khulnasoft-icon.svg";
-import { OPEN_SAUCED_INSIGHTS_DOMAIN } from "../../../constants";
+import khulnaSoftLogoIcon from "../../../assets/khulnasoft-icon.svg";
+import { KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN } from "../../../constants";
 
 export const AddPRToHighlightsButton = () => {
     const addPRToHighlightsButton = createHtmlElement("a", {
         id: "add-pr-to-highlights-button",
         className: "relative cursor-pointer",
         innerHTML: `<img class="mr-1 mt-1" height="16px" width="16px" src=${chrome.runtime.getURL(
-            openSaucedLogoIcon,
+            khulnaSoftLogoIcon,
         )}>
     <details-menu id="details-menu-os" class="dropdown-menu hidden dropdown-menu-sw color-fg-default w-48 mt-2">
-    <a href="https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/feed?new=true&prurl=${encodeURIComponent(
+    <a href="https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/feed?new=true&prurl=${encodeURIComponent(
     window.location.href,
 )}" class="dropdown-item" target="_blank">
       <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-plus">

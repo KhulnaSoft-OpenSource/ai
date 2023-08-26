@@ -23,7 +23,7 @@ Leverage AI to generate pull request descriptions based on the diff & commit mes
 
 ## Documentation
 
-The developer documentation for the project can be found [here](./docs/). For a usage guide, click [here](https://docs.khulnasoft.pizza/chrome-extension/introduction-to-the-chrome-extension/).
+The developer documentation for the project can be found [here](./docs/). For a usage guide, click [here](https://docs.khulnasoft.com/chrome-extension/introduction-to-the-chrome-extension/).
 
 ## Running the project locally
 
@@ -79,7 +79,7 @@ You should now have the extension installed and running.
 
 ## 🤝 Contributing
 
-We encourage you to contribute to KhulnaSoft! Please check out the [Contributing guide](https://docs.khulnasoft.pizza/contributing/introduction-to-contributing/) for guidelines about how to proceed.
+We encourage you to contribute to KhulnaSoft! Please check out the [Contributing guide](https://docs.khulnasoft.com/contributing/introduction-to-contributing/) for guidelines about how to proceed.
 
 We have a commit utility called [@khulnasoft-opensource/conventional-commit](https://github.com/khulnasoft-opensource/conventional-commit) that helps you write your commits in a way that is easy to understand and process by others.
 

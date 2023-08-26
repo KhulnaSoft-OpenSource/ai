@@ -1,5 +1,5 @@
 import { createHtmlElement } from "../../../utils/createHtmlElement";
-import openSaucedLogoIcon from "../../../assets/khulnasoft-icon.svg";
+import khulnaSoftLogoIcon from "../../../assets/khulnasoft-icon.svg";
 import { generateCodeExplanation, generateCodeSuggestion, generateCodeTest } from "../../../utils/ai-utils/openai";
 import {
     AICodeReviewMenu,
@@ -11,7 +11,7 @@ export const AICodeReviewButton = (commentNode: HTMLElement) => {
     const changeSuggestorButton = createHtmlElement("a", {
         innerHTML: `<span id="ai-change-gen" class="toolbar-item btn-octicon">
       <img class="octicon octicon-heading" height="16px" width="16px" id="ai-description-button-logo" src=${chrome.runtime.getURL(
-        openSaucedLogoIcon,
+        khulnaSoftLogoIcon,
     )}>
       </span>`,
         onclick: (event: MouseEvent) => {

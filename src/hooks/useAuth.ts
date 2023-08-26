@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-    OPEN_SAUCED_INSIGHTS_DOMAIN,
-    OPEN_SAUCED_SESSION_ENDPOINT,
+    KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN,
+    KHULNASOFT_OPENSOURCE_SESSION_ENDPOINT,
     SUPABASE_AUTH_COOKIE_NAME,
 } from "../constants";
 import { cachedFetch } from "../utils/cache";
@@ -26,7 +26,7 @@ export const useAuth = () => {
                 }
                 const cookie = await chrome.cookies.get({
                     name: SUPABASE_AUTH_COOKIE_NAME,
-                    url: `https://${OPEN_SAUCED_INSIGHTS_DOMAIN}`,
+                    url: `https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}`,
                 });
 
                 if (!cookie) {
@@ -34,7 +34,7 @@ export const useAuth = () => {
                 }
                 const token = JSON.parse(decodeURIComponent(cookie.value))[0];
 
-                const response = await cachedFetch(OPEN_SAUCED_SESSION_ENDPOINT, {
+                const response = await cachedFetch(KHULNASOFT_OPENSOURCE_SESSION_ENDPOINT, {
                     expireInSeconds: 2 * 60 * 60,
                     headers: {
                         Authorization: `Bearer ${token}`,

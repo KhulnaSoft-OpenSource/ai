@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/useAuth";
 import toast, { Toaster } from "react-hot-toast";
 import { createHighlight } from "../../utils/fetchKhulnaSoftApiData";
 import { goBack, goTo } from "react-chrome-extension-router";
-import { OPEN_SAUCED_INSIGHTS_DOMAIN } from "../../constants";
+import { KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN } from "../../constants";
 import { getAiDescription } from "../../content-scripts/components/GenerateAIDescription/DescriptionGeneratorButton";
 import Home from "./home";
 
@@ -52,7 +52,7 @@ const PostOnHighlight = ({ prUrl, prTitle }: { prUrl: string, prTitle: string })
                 return (
                     <span>
                         <a
-                            href={`https://${OPEN_SAUCED_INSIGHTS_DOMAIN}/user/${user?.user_name}/highlights`}
+                            href={`https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}/user/${user?.user_name}/highlights`}
                             rel="noreferrer"
                             target="_blank"
                         >

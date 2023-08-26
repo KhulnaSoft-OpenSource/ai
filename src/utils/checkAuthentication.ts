@@ -1,16 +1,16 @@
 import {
-    OPEN_SAUCED_AUTH_TOKEN_KEY,
-    OPEN_SAUCED_INSIGHTS_DOMAIN,
-    OPEN_SAUCED_OPTED_LOG_OUT_KEY, SUPABASE_LOGIN_URL, SUPABASE_PKCE_VERIFIER_COOKIE_NAME,
+    KHULNASOFT_OPENSOURCE_AUTH_TOKEN_KEY,
+    KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN,
+    KHULNASOFT_OPENSOURCE_OPTED_LOG_OUT_KEY, SUPABASE_LOGIN_URL, SUPABASE_PKCE_VERIFIER_COOKIE_NAME,
 } from "../constants";
 
-export const isLoggedIn = async (): Promise<boolean> => Object.entries(await chrome.storage.sync.get(OPEN_SAUCED_AUTH_TOKEN_KEY)).length !== 0;
+export const isLoggedIn = async (): Promise<boolean> => Object.entries(await chrome.storage.sync.get(KHULNASOFT_OPENSOURCE_AUTH_TOKEN_KEY)).length !== 0;
 
-export const getAuthToken = async (): Promise<string> => (await chrome.storage.sync.get(OPEN_SAUCED_AUTH_TOKEN_KEY))[OPEN_SAUCED_AUTH_TOKEN_KEY];
+export const getAuthToken = async (): Promise<string> => (await chrome.storage.sync.get(KHULNASOFT_OPENSOURCE_AUTH_TOKEN_KEY))[KHULNASOFT_OPENSOURCE_AUTH_TOKEN_KEY];
 
 export const optLogOut = () => {
     void removeAuthTokenFromStorage();
-    const optedLogout = { [OPEN_SAUCED_OPTED_LOG_OUT_KEY]: true };
+    const optedLogout = { [KHULNASOFT_OPENSOURCE_OPTED_LOG_OUT_KEY]: true };
 
     void chrome.storage.local.set(optedLogout);
 };
@@ -19,7 +19,7 @@ export const optLogIn = async () => {
     if (typeof window === "undefined") {
         return;
     }
-    const optedLogout = { [OPEN_SAUCED_OPTED_LOG_OUT_KEY]: false };
+    const optedLogout = { [KHULNASOFT_OPENSOURCE_OPTED_LOG_OUT_KEY]: false };
 
     void chrome.storage.local.set(optedLogout);
 
@@ -31,22 +31,22 @@ export const optLogIn = async () => {
     loginURL.searchParams.append("provider", "github");
     loginURL.searchParams.append(
         "redirect_to",
-        `https://${OPEN_SAUCED_INSIGHTS_DOMAIN}`,
+        `https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}`,
     );
     loginURL.searchParams.append("code_challenge_method", "s256");
     loginURL.searchParams.append("code_challenge", challenge);
 
     await chrome.cookies.set({
-        url: `https://${OPEN_SAUCED_INSIGHTS_DOMAIN}`,
+        url: `https://${KHULNASOFT_OPENSOURCE_INSIGHTS_DOMAIN}`,
         name: SUPABASE_PKCE_VERIFIER_COOKIE_NAME,
         value: verifier,
     });
     window.open(loginURL, "_blank");
 };
 
-export const hasOptedLogOut = async (): Promise<boolean> => (await chrome.storage.local.get(OPEN_SAUCED_OPTED_LOG_OUT_KEY))[OPEN_SAUCED_OPTED_LOG_OUT_KEY] === true;
+export const hasOptedLogOut = async (): Promise<boolean> => (await chrome.storage.local.get(KHULNASOFT_OPENSOURCE_OPTED_LOG_OUT_KEY))[KHULNASOFT_OPENSOURCE_OPTED_LOG_OUT_KEY] === true;
 
-export const removeAuthTokenFromStorage = async (): Promise<void> => chrome.storage.sync.remove(OPEN_SAUCED_AUTH_TOKEN_KEY);
+export const removeAuthTokenFromStorage = async (): Promise<void> => chrome.storage.sync.remove(KHULNASOFT_OPENSOURCE_AUTH_TOKEN_KEY);
 
 // Custom browser only PKCE implementation based on https://github.com/supabase/gotrue-js
 

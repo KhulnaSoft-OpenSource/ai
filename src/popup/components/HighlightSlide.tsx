@@ -92,7 +92,7 @@ export const HighlightSlide = ({ highlight, emojis }: HighlightSlideProps) => {
 
                 <a
                     className="text-orange cursor-pointer"
-                    href={`https://insights.khulnasoft.pizza/user/${login}`}
+                    href={`https://insights.khulnasoft.com/user/${login}`}
                     rel="noopener noreferrer"
                     target="_blank"
                 >
