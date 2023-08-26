@@ -60,20 +60,6 @@ After running the above commands,
 
 You should now have the extension installed and running.
 
-## 🙌🏼 Core Team
-<p align="left>
-  <a href="https://github.com"/></a>
-  <a href="https://github.com/bdougie">
-    <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/5713670&h=60&w=60&fit=cover&mask=circle" alt="Brian Douglas">
-  </a>
-  <a href="https://github.com/diivi">
-    <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/41837037&h=60&w=60&fit=cover&mask=circle" alt="Divyansh Singh">
-  </a>
-  <a href="https://github.com/Anush008">
-    <img src="https://images.weserv.nl/?url=avatars.githubusercontent.com/u/46051506&h=60&w=60&fit=cover&mask=circle" alt="Anush Shetty">
-  </a>
-</p>
-
 ## 🤝 Contributing
 
 We encourage you to contribute to KhulnaSoft! Please check out the [Contributing guide](https://docs.khulnasoft.com/contributing/introduction-to-contributing/) for guidelines about how to proceed.
@@ -92,8 +78,7 @@ Make sure to checkout the beta branch for the latest changes, and follow the [Co
 
 ## 🍕 Community
 
-Got Questions? Join the conversation in our [Discord](https://discord.gg/U2peSNf23P).  
-Find KhulnaSoft OpenSource videos and release overviews on our [YouTube Channel](https://www.youtube.com/channel/UCklWxKrTti61ZCROE1e5-MQ).
+Got Questions? Join the conversation in our [Discord](https://discord.gg/58KbV5w2).  
 
 ## ⚖️ LICENSE
 
